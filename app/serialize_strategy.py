@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import json
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree
+
 
 class SerializeStrategy(ABC):
     @abstractmethod
@@ -15,9 +16,9 @@ class JsonSerialize(SerializeStrategy):
 
 class XmlSerialize(SerializeStrategy):
     def serialize(self, title: str, content: str) -> str:
-        root = ET.Element("title")
-        title_elem = ET.SubElement(root, "title")
+        root = xml.etree.ElementTree.Element("title")
+        title_elem = xml.etree.ElementTree.SubElement(root, "title")
         title_elem.text = title
-        content_elem = ET.SubElement(root, "content")
+        content_elem = xml.etree.ElementTree.SubElement(root, "content")
         content_elem.text = content
-        return ET.tostring(root, encoding="unicode")
+        return xml.etree.ElementTree.tostring(root, encoding="unicode")

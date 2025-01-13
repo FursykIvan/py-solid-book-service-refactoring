@@ -1,7 +1,13 @@
 from app.book import Book
-from app.display_strategy import DisplayStrategy, ConsoleDisplay, ReverseDisplay
-from app.print_strategy import PrintStrategy, ConsolePrint, ReversePrint
-from app.serialize_strategy import SerializeStrategy, JsonSerialize, XmlSerialize
+from app.display_strategy import (DisplayStrategy,
+                                  ConsoleDisplay,
+                                  ReverseDisplay)
+from app.print_strategy import (PrintStrategy,
+                                ConsolePrint,
+                                ReversePrint)
+from app.serialize_strategy import (SerializeStrategy,
+                                    JsonSerialize,
+                                    XmlSerialize)
 
 
 def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
